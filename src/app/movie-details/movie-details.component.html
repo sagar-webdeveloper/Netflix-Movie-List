@@ -1,0 +1,61 @@
+<div class="container pad-t-20">
+    <h2 class="text-center">Movie Details</h2>
+    <div class="row justify-content-center">
+        <!-- Details of selected Movie / Web Series -->
+        <form [formGroup]="form" (submit)="onSavePost()" class="card p-3 bg-light">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Title</label>
+                    <input type="text" class="form-control" formControlName="title" (keypress)="keyPressAlphaNumericWithCharacters($event)" placeholder="Title" required>
+                    <div *ngIf="form.get('title').invalid" class="alert alert-danger"> Please Enter Title</div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Type</label>
+                    <input type="text" class="form-control" formControlName="type" placeholder="Type" (keypress)="keyPressAlphaNumericWithCharacters($event)">
+                    <div *ngIf="form.get('type').invalid" class="alert alert-danger"> Please Enter Type</div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Release Year</label>
+                    <input type="text" class="form-control" formControlName="releaseYear" placeholder="Release Year" (keypress)="keyPressAlphaNumericWithCharacters($event)">
+                    <div *ngIf="form.get('releaseYear').invalid" class="alert alert-danger"> Please Enter Release Year</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Rating</label>
+                    <input type="text" class="form-control" formControlName="rating" placeholder="Rating" (keypress)="keyPressAlphaNumericWithCharacters($event)">
+                    <div *ngIf="form.get('rating').invalid" class="alert alert-danger"> Please Enter Rating</div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Duration</label>
+                    <input type="text" class="form-control" formControlName="duration" placeholder="Duration" (keypress)="keyPressAlphaNumericWithCharacters($event)">
+                    <div *ngIf="form.get('duration').invalid" class="alert alert-danger"> Please Enter Duration</div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Country</label>
+                    <input type="text" class="form-control" formControlName="country" placeholder="Country" (keypress)="keyPressAlphaNumericWithCharacters($event)">
+                    <div *ngIf="form.get('country').invalid" class="alert alert-danger"> Please Enter Country</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Cast</label>
+                <textarea rows="3" placeholder="Cast" formControlName="cast" class="form-control" (keypress)="keyPressAlphaNumericWithCharacters($event)"></textarea>
+                <div *ngIf="form.get('cast').invalid" class="alert alert-danger"> Please Enter Cast</div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Description</label>
+                <textarea rows="3" placeholder="Description" formControlName="description" class="form-control" (keypress)="keyPressAlphaNumericWithCharacters($event)"></textarea>
+                <div *ngIf="form.get('description').invalid" class="alert alert-danger"> Please Enter Description</div>
+            </div>
+            <!-- Update, delete and, back buttons -->
+            <div class="text-right">
+                <button type="button" class="btn btn-secondary float-left" [routerLink]="['']">Back</button>
+                <button type="submit" class="btn btn-success mr-2">Update</button>
+                <button type="button" class="btn btn-danger mr-2" (click)="delete()">Delete</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
